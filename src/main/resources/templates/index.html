@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добро пожаловать!</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-grid.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-reboot.css}">
+
+    <style>
+        .jumbotron {
+            border-radius: 0;
+        }
+
+        .card-img-top {
+            overflow: hidden;
+        }
+
+        .zoomable-container {
+            overflow: hidden;
+        }
+
+        .zoomable {
+            max-width: 100%;
+
+            -moz-transition: all 0.3s;
+            -webkit-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .zoomable:hover {
+            -moz-transform: scale(1.3);
+            -webkit-transform: scale(1.3);
+            transform: scale(1.3);
+
+            z-index: -1;
+            -webkit-filter: grayscale(40%) blur(2px) contrast(100%);
+            filter: grayscale(40%) blur(2px) contrast(100%);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron">
+        <h2>Туризм в Хабаровске</h2>
+        <hr/>
+        <div style="display: flex; flex-direction: row; justify-content: space-between">
+            <div>sads</div>
+            <div class="list-inline">
+                <div class="list-inline-item">
+                    <a class="btn btn-primary">Цены и услуги</a>
+                </div>
+                <div class="list-inline-item">
+                    <a class="btn btn-primary">Контакты</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="bg-light" style="box-shadow: 0 5px 5px gray; padding: 10px;">
+                <p class="lead">Моя корзина</p>
+                <hr/>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <h3>Популярные услуги</h3>
+            <hr/>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card">
+                        <div class="zoomable-container">
+                            <img class="card-img-top zoomable" th:src="@{/img/1.jpg}">
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                        <div class="card-footer">
+                            <div style="display: flex; flex-direction: row; justify-content: center">
+                                <button style="width: 100%" class="btn btn-success">Добавить в заказ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card">
+                        <div class="zoomable-container">
+                            <img class="card-img-top zoomable" th:src="@{/img/2.jpg}">
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                        <div class="card-footer">
+                            <div style="display: flex; flex-direction: row; justify-content: center">
+                                <button style="width: 100%" class="btn btn-success">Добавить в заказ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card">
+                        <div class="zoomable-container">
+                            <img class="card-img-top zoomable" th:src="@{/img/3.jpg}">
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                        <div class="card-footer">
+                            <div style="display: flex; flex-direction: row; justify-content: center">
+                                <button style="width: 100%" class="btn btn-success">Добавить в заказ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="col-4">
+                    <div class="card">
+                        <img class="card-img-top" th:src="@{/img/3.jpg}">
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+<script th:src="@{/js/bootstrap.js}"></script>
+</body>
+</html>
