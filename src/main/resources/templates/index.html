@@ -3,13 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Добро пожаловать!</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-grid.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-reboot.css}">
 
     <style>
         .jumbotron {
+            border-radius: 0;
+        }
+
+        .card {
+            border-left: 1px solid lightgray;
+            border-right: 1px solid lightgray;
+            box-shadow: 0 3px 2px gray;
+        }
+
+        .card, .card-img-top{
             border-radius: 0;
         }
 
@@ -38,89 +48,69 @@
             -webkit-filter: grayscale(40%) blur(2px) contrast(100%);
             filter: grayscale(40%) blur(2px) contrast(100%);
         }
+
+        .background-image {
+            position: fixed;
+            left: 0;
+            right: 0;
+            z-index: 1;
+
+            display: block;
+            background-image: url('/img/logo.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position-y: 20%;
+
+            -webkit-filter: blur(5px);
+            -moz-filter: blur(5px);
+            -o-filter: blur(5px);
+            -ms-filter: blur(5px);
+            filter: blur(5px);
+        }
+
+        .background-image-content {
+            position: fixed;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="jumbotron">
-        <h2>Туризм в Хабаровске</h2>
-        <hr/>
-        <div style="display: flex; flex-direction: row; justify-content: space-between">
-            <div>sads</div>
-            <div class="list-inline">
-                <div class="list-inline-item">
-                    <a class="btn btn-primary">Цены и услуги</a>
-                </div>
-                <div class="list-inline-item">
-                    <a class="btn btn-primary">Контакты</a>
-                </div>
+        <div class="list-inline">
+            <div class="list-inline-item">
+                <a th:href="@{/service?season=all&range=1}" class="btn btn-light">Услуги</a>
             </div>
         </div>
     </div>
+
     <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-4 d-none d-md-block d-lg-block">
             <div class="bg-light" style="box-shadow: 0 5px 5px gray; padding: 10px;">
                 <p class="lead">Моя корзина</p>
                 <hr/>
             </div>
         </div>
-        <div class="col-lg-8">
+        <div class="col-lg-8 col-sm-12 col-xs-12">
             <h3>Популярные услуги</h3>
             <hr/>
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="card">
-                        <div class="zoomable-container">
+                    <div class="card h-75">
+                        <div class="zoomable-container h-25">
                             <img class="card-img-top zoomable" th:src="@{/img/1.jpg}">
                         </div>
                         <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text">Some quick example.</p>
                         </div>
                         <div class="card-footer">
                             <div style="display: flex; flex-direction: row; justify-content: center">
                                 <button style="width: 100%" class="btn btn-success">Добавить в заказ</button>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="card">
-                        <div class="zoomable-container">
-                            <img class="card-img-top zoomable" th:src="@{/img/2.jpg}">
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                        <div class="card-footer">
-                            <div style="display: flex; flex-direction: row; justify-content: center">
-                                <button style="width: 100%" class="btn btn-success">Добавить в заказ</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="card">
-                        <div class="zoomable-container">
-                            <img class="card-img-top zoomable" th:src="@{/img/3.jpg}">
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                        <div class="card-footer">
-                            <div style="display: flex; flex-direction: row; justify-content: center">
-                                <button style="width: 100%" class="btn btn-success">Добавить в заказ</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <hr/>
-            <div class="row">
-                <div class="col-4">
-                    <div class="card">
-                        <img class="card-img-top" th:src="@{/img/3.jpg}">
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
                     </div>
                 </div>
@@ -128,7 +118,8 @@
         </div>
     </div>
 </div>
-<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script th:src="@{/js/bootstrap.js}"></script>
 </body>
 </html>

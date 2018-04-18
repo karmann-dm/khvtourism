@@ -3,8 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <title>Список услуг</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-grid.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-reboot.css}">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script th:src="@{/js/bootstrap.js}"></script>
 </head>
 <body>
-    <p th:text="${season}"></p>
+    <div class="container">
+        <div class="jumbotron" style="border-radius: 0">
+            <div class="flex-row d-flex justify-content-between">
+                <h2>Выберите услугу</h2>
+                <div><a th:href="@{/}" class="btn btn-success">На главную</a></div>
+            </div>
+            <hr/>
+
+            <form>
+                <div class="flex-row-reverse d-flex justify-content-start">
+                    <div>
+                        <label>Сезон</label>
+                        <select id="season-search" class="form-control" style="min-width: 200px;">
+                            <option value="1">Все</option>
+                            <option value="2">Зима</option>
+                            <option value="3">Лето</option>
+                        </select>
+                    </div>
+                    <div style="margin-right: 10px;">
+                        <label>Диапазон цен</label>
+                        <input id="range-search" type="range" class="custom-range" min="0" max="5" step="1">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <script>
+            var urlParams = new URLSearchParams(window.location.search);
+            var season = urlParams.get('season');
+            var range = urlParams.get('range');
+
+            function seasonToValue(season) {
+                var seasonValue = null;
+                if(season === 'all')
+                    seasonValue = 1;
+                if(season === 'winter')
+                    seasonValue = 2;
+                if(season === 'summer')
+                    seasonValue = 3;
+                return seasonValue;
+            }
+
+            function valueToSeason(value) {
+                var seasonOrigin = null;
+                if(value == 1)
+                    seasonOrigin = 'all';
+                if(value == 2)
+                    seasonOrigin = 'winter';
+                if(value == 3)
+                    seasonOrigin = 'summer';
+                return seasonOrigin;
+            }
+
+            $(document).ready(function () {
+                $('#season-search').val(seasonToValue(season));
+                $('#range-search').val(range);
+            });
+
+            $('#range-search, #season-search').on('change', function () {
+                var basePath = window.location.href.split('?')[0];
+                basePath += '?season=' + valueToSeason($('#season-search').val());
+                basePath += '&range=' + $('#range-search').val();
+                window.location.href = basePath;
+            });
+        </script>
+
+        <div class="row">
+            <div class="col-lg-4 d-none d-md-block d-lg-block">
+                <div class="bg-light" style="box-shadow: 0 5px 5px gray; padding: 10px;">
+                    <p class="lead">Моя корзина</p>
+                    <hr/>
+                </div>
+            </div>
+            <div class="col-lg-8 col-sm-12 col-xs-12">
+                asdsd
+            </div>
+        </div>
+    </div>
 </body>
 </html>
