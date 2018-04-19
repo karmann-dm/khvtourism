@@ -9,6 +9,7 @@ public interface ServiceService {
     void addService(Service service);
     void updateService(Service service);
     List<Service> getServices();
+    List<Service> getServices(int limit);
     List<Service> getServicesBySeason(ServiceSeason serviceSeason);
     Service getServiceById(Long id);
     Service deleteService(Long id);

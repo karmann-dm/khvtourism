@@ -11,5 +11,9 @@ import java.util.List;
 public interface ServiceRepository extends CrudRepository<Service, Long> {
     List<Service> findAllBySeason(int season);
     List<Service> findAllByPriceBetween(double minPrice, double maxPrice);
+
+    @Query("from Service")
+    List<Service> randomLimit();
+
     Service findByTitle(String title);
 }

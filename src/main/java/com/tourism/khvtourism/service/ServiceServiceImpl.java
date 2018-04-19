@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -33,6 +34,13 @@ public class ServiceServiceImpl implements ServiceService {
     public List<com.tourism.khvtourism.model.Service> getServices() {
         return StreamSupport.stream(serviceRepository.findAll().spliterator(), false)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<com.tourism.khvtourism.model.Service> getServices(int limit) {
+        List<com.tourism.khvtourism.model.Service> serviceList = getServices();
+        Collections.shuffle(serviceList);
+        return serviceList.subList(0, limit);
     }
 
     private int seasonToInt(ServiceSeason serviceSeason) {
