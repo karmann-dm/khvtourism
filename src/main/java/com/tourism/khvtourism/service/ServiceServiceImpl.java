@@ -52,17 +52,6 @@ public class ServiceServiceImpl implements ServiceService {
 
     @Override
     @Transactional
-    public List<com.tourism.khvtourism.model.Service> getServiceByRange(double minimalPrice, double maximalPrice) {
-        return serviceRepository.findAllByPriceBetween(minimalPrice, maximalPrice);
-    }
-
-    @Override
-    public List<com.tourism.khvtourism.model.Service> getServiceByRangeAndBySeason(double minimalPrice, double maximalPrice, ServiceSeason serviceSeason) {
-        return serviceRepository.findAllBySeasonAndPriceBetween(seasonToInt(serviceSeason), minimalPrice, maximalPrice);
-    }
-
-    @Override
-    @Transactional
     public com.tourism.khvtourism.model.Service getServiceById(Long id) {
         return null;
     }

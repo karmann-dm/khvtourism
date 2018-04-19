@@ -9,18 +9,28 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-reboot.css}">
 
     <style>
+        body {
+            background-image: url("/img/logo.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
         .jumbotron {
             border-radius: 0;
+            background-color: aliceblue;
+            padding: 20px;
+            box-shadow: 0 2px 4px gray;
         }
 
         .card {
-            border-left: 1px solid lightgray;
-            border-right: 1px solid lightgray;
-            box-shadow: 0 3px 2px gray;
-        }
-
-        .card, .card-img-top{
             border-radius: 0;
+            box-shadow: 0 2px 2px #222222;
+
+            background-color: white;
+
+            border-left: 1px solid slategray;
+            border-right: 1px solid slategray;
+            border-top: 1px solid slategray;
         }
 
         .card-img-top {
@@ -89,32 +99,39 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-4 d-none d-md-block d-lg-block">
-            <div class="bg-light" style="box-shadow: 0 5px 5px gray; padding: 10px;">
-                <p class="lead">Моя корзина</p>
-                <hr/>
+        <div class="col-lg-12 col-sm-12 col-xs-12">
+            <h3 class="text-center" style="text-shadow: 1px 1px white">Популярные услуги</h3>
+            <hr/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card">
+                asd
             </div>
         </div>
-        <div class="col-lg-8 col-sm-12 col-xs-12">
-            <h3>Популярные услуги</h3>
-            <hr/>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="card h-75">
-                        <div class="zoomable-container h-25">
-                            <img class="card-img-top zoomable" th:src="@{/img/1.jpg}">
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example.</p>
-                        </div>
-                        <div class="card-footer">
-                            <div style="display: flex; flex-direction: row; justify-content: center">
-                                <button style="width: 100%" class="btn btn-success">Добавить в заказ</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="col-lg-4">
+            <div class="card">
+                asd
             </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card">
+                asd
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-xs-12">
+            <h3 class="text-center" style="text-shadow: 1px 1px white">О нас</h3>
+            <hr/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-xs-12">
+            <h3 class="text-center" style="text-shadow: 1px 1px white">Контакты</h3>
+            <hr/>
         </div>
     </div>
 </div>

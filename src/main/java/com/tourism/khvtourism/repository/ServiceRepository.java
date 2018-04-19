@@ -12,6 +12,4 @@ public interface ServiceRepository extends CrudRepository<Service, Long> {
     List<Service> findAllBySeason(int season);
     List<Service> findAllByPriceBetween(double minPrice, double maxPrice);
     Service findByTitle(String title);
-
-    List<Service> findAllBySeasonAndPriceBetween(int season, double minPrice, double maxPrice);
 }

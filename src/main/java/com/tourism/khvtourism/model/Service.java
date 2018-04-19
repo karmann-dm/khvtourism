@@ -20,16 +20,20 @@ public class Service {
     private int season;
 
     @Column(name = "price")
-    private double price;
+    private int price;
+
+    @Column(name = "file")
+    private String file;
 
     public Service() {
     }
 
-    public Service(String title, String description, int season, double price) {
+    public Service(String title, String description, int season, int price, String file) {
         this.setTitle(title);
         this.setDescription(description);
         this.setSeason(season);
         this.setPrice(price);
+        this.setFile(file);
     }
 
     public Long getId() {
@@ -64,11 +68,19 @@ public class Service {
         this.season = season;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
+    }
+
+    public String getFile() {
+        return file;
+    }
+
+    public void setFile(String file) {
+        this.file = file;
     }
 }

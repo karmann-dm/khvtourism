@@ -10,8 +10,6 @@ public interface ServiceService {
     void updateService(Service service);
     List<Service> getServices();
     List<Service> getServicesBySeason(ServiceSeason serviceSeason);
-    List<Service> getServiceByRange(double minimalPrice, double maximalPrice);
-    List<Service> getServiceByRangeAndBySeason(double minimalPrice, double maximalPrice, ServiceSeason serviceSeason);
     Service getServiceById(Long id);
     Service deleteService(Long id);
 }

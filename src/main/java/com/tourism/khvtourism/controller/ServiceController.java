@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -19,7 +20,7 @@ public class ServiceController {
     private ServiceService serviceService;
 
     @GetMapping("/service")
-    public ModelAndView list(@RequestParam String season, @RequestParam int range) {
+    public ModelAndView list(@RequestParam String season) {
         ModelAndView modelAndView = new ModelAndView();
 
         ServiceSeason seasonValue = ServiceSeason.ALL;
@@ -28,9 +29,14 @@ public class ServiceController {
         if(season.equals("summer"))
             seasonValue = ServiceSeason.SUMMER;
 
-        List<Service> result = serviceService.getServiceByRangeAndBySeason(100.0, 200.0, seasonValue);
+        List<Service> result = new ArrayList<>();
 
-        modelAndView.addObject("result", result);
+        if(seasonValue == ServiceSeason.ALL)
+            result = serviceService.getServices();
+        else
+            result = serviceService.getServicesBySeason(seasonValue);
+
+        modelAndView.addObject("results", result);
         modelAndView.setViewName("service/list");
         return modelAndView;
     }
