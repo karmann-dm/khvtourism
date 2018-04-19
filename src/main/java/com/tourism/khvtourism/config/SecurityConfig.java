@@ -16,7 +16,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/bill/**",
                         "/css/**",
                         "/js/**",
-                        "/img/**"
+                        "/img/**",
+                        "/weather-icons-master/**"
                 )
                     .permitAll()
                         .anyRequest()
