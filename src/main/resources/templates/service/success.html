@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-grid.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-reboot.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/weather-icons-master/css/weather-icons.css}">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script th:src="@{/js/bootstrap.js}"></script>
+
+    <title>Оформление завершено</title>
+
+    <style>
+        body {
+            background-image: url('/img/logo.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            height: 100vh;
+        }
+
+        .aslink {
+            background-color: white;
+            cursor: pointer;
+            border: none;
+            color: indianred;
+        }
+
+        .aslink:hover {
+            border: none;
+            color: darkred;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row" style="padding-left: 5px; padding-right: 5px;">
+        <div class="col-lg-6 col-md-8 col-sm-12 col-12 mt-2 p-3" style="background-color: whitesmoke; box-shadow: 0 5px 5px #333333">
+            <div class="flex-row d-flex justify-content-between">
+                <h3>Оформление завершено!</h3>
+            </div>
+            <hr/>
+            <div>
+                <p class="text-danger">Проверьте электронную почту на наличие контактного письма.</p>
+                <hr/>
+                <p>Вы будете перенаправлены на страницу выбора услуг через <b id="countdown">10</b> секунд. <a href="/service?season=all">Перейти сейчас</a></p>
+                <p>Хорошего дня!</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        var seconds = 10;
+
+        function countdown() {
+            seconds--;
+            if(seconds < 0)
+                window.location.href = "/service?season=all";
+            else {
+                document.getElementById("countdown").innerHTML = seconds;
+                window.setTimeout("countdown()", 1000);
+            }
+        }
+
+        countdown();
+    </script>
+</div>
+</body>
+</html>

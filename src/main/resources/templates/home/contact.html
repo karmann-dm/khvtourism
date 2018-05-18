@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Контакты</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-grid.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-reboot.css}">
+
+    <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script th:src="@{/js/bootstrap.js}"></script>
+
+    <style>
+        body {
+            background-image: url("/img/logo.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        iframe {
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row" style="margin-top: 30px;">
+        <div class="col-lg-5 col-md-12 col-sm-12 col-12">
+            <div style="background-color: whitesmoke; padding: 20px; box-shadow: 0 5px 5px #333333;">
+                <div class="flex-row d-flex justify-content-between">
+                    <h4>Напишите нам!</h4>
+                    <span><a href="/">Назад</a></span>
+                </div>
+                <hr/>
+                <form action="/contact" method="post">
+
+                    <div class="form-group">
+                        <label>Ваше имя</label>
+                        <input class="form-control" type="text" name="name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Ваше email</label>
+                        <input class="form-control" type="email" name="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Сообщение</label>
+                        <textarea class="form-control" name="message" rows="5"></textarea>
+                    </div>
+
+                    <hr/>
+
+                    <button type="submit" class="btn btn-success" style="width: 100%; border-radius: 0">Отправить</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-7 col-md-12 col-sm-12 col-12" style="margin-top: 10px;">
+            <div style="box-shadow: 0 5px 5px #333333; height: 295px;">
+                <iframe width="600" height="295" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA&key=AIzaSyCGU9_TLXIfAtVTPGvPDpIgwieg3c5MfC0" allowfullscreen></iframe>
+            </div>
+            <div style="background-color: whitesmoke; padding: 20px; margin-top: 30px; box-shadow: 0 5px 5px #333333">
+                <h4>Наши контакты</h4>
+                <hr/>
+                <p>
+                    Телефон: +7 (999) 999-99-99
+                </p>
+                <p>
+                    Email: tourism@tourism.khv
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

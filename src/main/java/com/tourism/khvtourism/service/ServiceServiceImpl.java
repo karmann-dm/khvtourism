@@ -61,12 +61,12 @@ public class ServiceServiceImpl implements ServiceService {
     @Override
     @Transactional
     public com.tourism.khvtourism.model.Service getServiceById(Long id) {
-        return null;
+        return serviceRepository.findById(id).get();
     }
 
     @Override
     @Transactional
-    public com.tourism.khvtourism.model.Service deleteService(Long id) {
-        return null;
+    public void deleteService(Long id) {
+        serviceRepository.deleteById(id);
     }
 }

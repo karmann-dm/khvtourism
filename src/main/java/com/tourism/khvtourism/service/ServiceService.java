@@ -12,5 +12,5 @@ public interface ServiceService {
     List<Service> getServices(int limit);
     List<Service> getServicesBySeason(ServiceSeason serviceSeason);
     Service getServiceById(Long id);
-    Service deleteService(Long id);
+    void deleteService(Long id);
 }
